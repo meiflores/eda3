@@ -6,6 +6,9 @@ public class Reporte {
 	private Double totalIva;
 	private Double totalNeto;
 	
+	public Reporte() {
+		
+	}
 	
 	public String imprimirReporte() {
 		//formato de impresion es totalVenta-totalIva-totalNeto

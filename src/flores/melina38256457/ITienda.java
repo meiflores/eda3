@@ -12,7 +12,7 @@ public interface ITienda {
 	
 	// No permite vender si la caja esta Cerrada y lanza CajaCerradaException
 	// Si el producto no existe Lanza Una Excepcion ProductoInexistenteException
-	public void vender(Integer idProducto)  ;
+	public void vender(Integer idProducto) throws ProductoInexistente, CajaCerrada;
 	
 	//cierra la caja arma y retorna el reporte Diario
 	public Reporte cierreZ();

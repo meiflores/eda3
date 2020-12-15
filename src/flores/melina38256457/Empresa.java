@@ -14,21 +14,30 @@ public class Empresa {
 	// conveniente
 	private String nombre;
 	private HashMap<Integer, Camion> flota;
+	private int idCamionActual=0;
+	private TreeSet<Camion> camionesOrdenadosPorPatente;
 
 	public Empresa() {
-
+		nombre="";
+		flota=new HashMap<Integer,Camion>();
+		camionesOrdenadosPorPatente = new TreeSet<Camion>();
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
 	}
 
 	public void agregarCamion(Camion camion) {
 
 		// se agrega uncamion el primer camion tiene como identificador 0 el el segundo
 		// 1 2 3.4
-
+		flota.put(idCamionActual, camion);
+		idCamionActual++;
 	}
 
 	public Integer cantidadDeCamiones() {
 
-		return null;
+		return flota.size();
 	}
 
 	public TreeSet<Camion> obtenerTiendascamionOrdenadoPorPatente() {

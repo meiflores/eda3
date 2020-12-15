@@ -14,36 +14,45 @@ public class Camion  {
 	
 	
 	private String patente;
-	private List <Producto> listaProductos;
+	protected List <Producto> listaProductos;
 	
 	
 	public Camion (String patente) {
-	
+		this.patente=patente;
+		this.listaProductos=new ArrayList<Producto>();
 	}
 	
 	
 	public Boolean cargarProducto(Producto producto) {
-		/*
-		 * carga el producto en la lista de producto 
-		 *   
-		 * 
-		 */
-		
-		
-		return null;
+		listaProductos.add(producto);
+		return true;
 	
 	}
 	
 	
-	public Producto descargarProducto(Integer idProducto) {
+	public Producto descargarProducto(Integer idProducto) throws ProductoInexistente {
 	
 		/*
 		 * buesca y un producto por su id y devuelve el producto encontrado
 		 * por otro lado elimina dicho producto de la coleccion
 		 * encaso que el idProducto no se encuentre retorna una exception ProductoInexistenteException
 		 */
+		Producto productoADescargar=null;
+		int i=0;
+		for (Producto producto : listaProductos) {
+			if(idProducto == producto.getId()) {
+				productoADescargar=producto;
+				listaProductos.remove(i);
+			}else {
+				i++;
+			}
+				
+		}
+		if (productoADescargar==null) {
+			throw new ProductoInexistente("El id de producto no corresponde a ningún producto.");
+		}
 		
-	return null;
+	return productoADescargar;
 	}
 	
 
