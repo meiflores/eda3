@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Camion  {
+public class Camion implements Comparable<Camion> {
 	
 	// completar la clase Empresa
 
@@ -73,6 +73,18 @@ public class Camion  {
 
 	public void setListaProductos(List<Producto> listaProductos) {
 		this.listaProductos = listaProductos;
+	}
+
+
+	@Override
+	public int compareTo(Camion otroCamion) {
+		return this.patente.compareTo(otroCamion.getPatente());
+	}
+
+
+	@Override
+	public String toString() {
+		return "Camion [patente=" + patente + "]";
 	}
 
 

@@ -75,6 +75,10 @@ public class TiendaCamion extends Camion implements ITienda {
 		reporteCierreZ.setTotalVentas(totalVentaDeldia);
 		return reporteCierreZ;
 	}
+	
+	public Integer getCantidadDeVentas() {
+		return ventas.size();
+	}
 
 
 }

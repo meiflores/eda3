@@ -15,12 +15,12 @@ public class Empresa {
 	private String nombre;
 	private HashMap<Integer, Camion> flota;
 	private int idCamionActual=0;
-	private TreeSet<Camion> camionesOrdenadosPorPatente;
+	private TreeSet<Camion> teindasCamionOrdenadosPorPatente;
 
 	public Empresa() {
 		nombre="";
 		flota=new HashMap<Integer,Camion>();
-		camionesOrdenadosPorPatente = new TreeSet<Camion>();
+		teindasCamionOrdenadosPorPatente = new TreeSet<Camion>();
 	}
 	
 	public void setNombre(String nombre) {
@@ -34,6 +34,10 @@ public class Empresa {
 		flota.put(idCamionActual, camion);
 		idCamionActual++;
 	}
+	
+	public void agregarTiendaCamion(TiendaCamion tiendaCamion) {
+		teindasCamionOrdenadosPorPatente.add(tiendaCamion);
+	}
 
 	public Integer cantidadDeCamiones() {
 
@@ -42,8 +46,7 @@ public class Empresa {
 
 	public TreeSet<Camion> obtenerTiendascamionOrdenadoPorPatente() {
 		
-		
-		return null;
+		return teindasCamionOrdenadosPorPatente;
 	}
 
 }
