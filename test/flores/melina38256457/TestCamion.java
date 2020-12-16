@@ -25,10 +25,18 @@ public class TestCamion {
 	}
 	
 	//obligatorio
-	@Test
+	@Test(expected = ProductoInexistente.class)
 	
-	public void queDescargueUnProductoInexistenteLanceUnaException() {
-	
+	public void queDescargueUnProductoInexistenteLanceUnaException() throws ProductoInexistente {
+		Camion camion = new Camion("GHJ189");
+		Producto producto1 = new Producto();
+		Producto producto2 = new Producto();
+		producto1.setId(1);
+		producto1.setId(2);
+		camion.cargarProducto(producto1);
+		camion.cargarProducto(producto2);
+		
+		camion.descargarProducto(3);
 	
 	}
 	
